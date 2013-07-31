@@ -12,10 +12,10 @@
   </head>
   <body>
     <div id="lowerPanel" style="background-color: green"></div>
-    <div id="upperPanel" style="background-color: blue">click here</div>
+    <div id="upperPanel" style="background-color: blue">There is a upper panel which is blue and a lower panel which is green</div>
     <script>
       document.getElementById('lowerPanel').addEventListener('touchend', function() {
-        alert('lower gets touchstart, too.');
+        alert('lower gets touchend.');
       });
 
       document.getElementById('upperPanel').addEventListener('touchstart', function() {

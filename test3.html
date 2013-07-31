@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <style>
+      div {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 300px;
+        height: 300px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="lowerPanel" style="background-color: green"></div>
+    <div id="upperPanel" style="background-color: blue">click here</div>
+    <script>
+      document.getElementById('lowerPanel').addEventListener('touchend', function() {
+        alert('lower gets touchstart, too.');
+      });
+
+      document.getElementById('upperPanel').addEventListener('touchstart', function() {
+        document.getElementById('upperPanel').style.display = 'none';
+      });
+    </script>
+  </body>
+</html>

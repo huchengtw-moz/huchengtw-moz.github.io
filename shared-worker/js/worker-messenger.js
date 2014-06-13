@@ -17,7 +17,7 @@
     return this;
   };
 
-  proto._handleMessage = function(e) {
+  proto.handleEvent = function(e) {
     switch (e.type) {
       case 'error':
         this._logMsg('worker error: ' + e.message +

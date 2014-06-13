@@ -3,8 +3,8 @@ var Messenger = {
 
   handleConnect: function(e){
     e.ports.forEach(function(port) {
-      this.ports[this.ports.length] = port;
-      port.postMessage('You are #' + this.ports.length + ' client.');
+      Messenger.ports[Messenger.ports.length] = port;
+      port.postMessage('You are #' + Messenger.ports.length + ' client.');
       port.addEventListener('message', function(e) {
         Messenger.handleMessage(e);
       });
@@ -12,7 +12,7 @@ var Messenger = {
   },
 
   handleMessage: function(e) {
-    this.ports.forEach(function(port) {
+    Messenger.ports.forEach(function(port) {
       if (e.ports.indexOf(port) > -1) {
         return;
       }

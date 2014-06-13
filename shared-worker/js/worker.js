@@ -5,7 +5,9 @@ var Messenger = {
     e.ports.forEach(function(port) {
       this.ports[this.ports.length] = port;
       port.postMessage('You are #' + this.ports.length + ' client.');
-      port.addEventListener('message', this);
+      port.addEventListener('message', function(e) {
+        Messenger.handleMessage(e);
+      });
     });
   },
 
@@ -17,18 +19,9 @@ var Messenger = {
       port.postMessage(e.data);
     });
   },
-
-  handleEvent: function(e) {
-    switch(e.type) {
-      case 'connect':
-        this.handleConnect(e);
-        break;
-      case 'message':
-        this.handleMessage(e);
-        break;
-    }
-  }
 };
 
-self.addEventListener('connect', Messenger);
+self.addEventListener('connect', function(e) {
+  Messenger.handleConnect(e);
+});
 

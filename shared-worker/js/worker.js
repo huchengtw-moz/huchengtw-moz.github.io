@@ -3,25 +3,31 @@ var Messenger = {
 
   handleConnect: function(e){
     e.ports.forEach(function(port) {
-      Messenger.ports[Messenger.ports.length] = port;
-      port.postMessage('You are #' + Messenger.ports.length + ' client.');
-      port.addEventListener('message', function(e) {
-        Messenger.handleMessage(e);
-      });
-    });
+      this.ports[this.ports.length] = port;
+      port.postMessage('You are #' + this.ports.length + ' client.');
+      port.onmessage = function(e) {
+        Messenger.handleEvent(e);
+      };
+    }.bind(this));
   },
 
   handleMessage: function(e) {
-    Messenger.ports.forEach(function(port) {
-      if (e.ports.indexOf(port) > -1) {
-        return;
-      }
-      port.postMessage(e.data);
-    });
+    var portIdx = this.ports.indexOf(e.target) + 1;
+    this.ports.forEach(function(port) {
+      port.postMessage('#' + portIdx + ':' + e.data);
+    }.bind(this));
   },
+
+  handleEvent: function(e) {
+    switch(e.type) {
+      case 'connect':
+        this.handleConnect(e);
+        break;
+      case 'message':
+        this.handleMessage(e);
+        break;
+    }
+  }
 };
 
-self.addEventListener('connect', function(e) {
-  Messenger.handleConnect(e);
-});
-
+self.addEventListener('connect', Messenger);

@@ -24,8 +24,7 @@
                      ' @' + e.filename + '#' + e.lineno);
         break;
       case 'message':
-        this._logMsg('message from worker received: ' + e.data + ', origin: ' +
-                     e.origin + ', lastEventId: ' + e.lastEventId);
+        this._logMsg(e.data);
         break;
     }
   };

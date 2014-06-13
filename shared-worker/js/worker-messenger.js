@@ -5,8 +5,8 @@
   var proto = WorkerMessenger.prototype;
 
   proto.init = function(messagePane) {
-    this._logMsg('create or connect to worker');
     this.messagePane = messagePane;
+    this._logMsg('create or connect to worker');
     this.worker = new SharedWorker('worker.js', document.title);
     // listen
     this.wokker.addEventListener('error', this);

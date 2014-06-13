@@ -7,7 +7,7 @@
   proto.init = function(messagePane) {
     this.messagePane = messagePane;
     this._logMsg('create or connect to worker');
-    this.worker = new SharedWorker('worker.js', document.title);
+    this.worker = new SharedWorker('js/worker.js', document.title);
     // listen
     this.worker.addEventListener('error', this);
     this.port = this.worker.port;

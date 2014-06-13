@@ -5,9 +5,8 @@ var Messenger = {
     e.ports.forEach(function(port) {
       this.ports[this.ports.length] = port;
       port.postMessage('You are #' + this.ports.length + ' client.');
-      port.onmessage = function(e) {
-        Messenger.handleEvent(e);
-      };
+      port.addEventListener('message', this);
+      port.start();
     }.bind(this));
   },
 

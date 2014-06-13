@@ -25,8 +25,14 @@ var Messenger = {
       case 'message':
         this.handleMessage(e);
         break;
+      case 'online':
+      case 'offline':
+        // How to show it is online/offline, XHR?
+        break;
     }
   }
 };
 
 self.addEventListener('connect', Messenger);
+self.addEventListener('online', Messenger);
+self.addEventListener('offline', Messenger);

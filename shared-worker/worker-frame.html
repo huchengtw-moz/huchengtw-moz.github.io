@@ -6,10 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="chrome=1" />
     <meta name="description" content="Huchengtw-moz.github.io : " />
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
-    <title>Shared Worker</title>
+    <title>Shared Worker Page</title>
+    <script defer src="js/worker-messenger.js"></script>
+    <script defer src="js/main.js"></script>
   </head>
   <body>
-    <iframe style="width: 40%; height: 500px" src="worker-frame.html"></iframe>
-    <iframe style="width: 40%; height: 500px" src="worker-frame.html"></iframe>
+    <div><input id="message" type="text"><button id="send-button">Send</button>
+        <button id="enable-button">Stop</button>
+    </div>
+    <div id="received"></div>
   </body>
 </html>

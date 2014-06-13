@@ -6,15 +6,28 @@
 
   proto.init = function(messagePane) {
     this.messagePane = messagePane;
+    return this;
+  };
+
+  proto.createWorker = function() {
     this._logMsg('create or connect to worker');
     this.worker = new SharedWorker('js/worker.js', document.title);
     // listen
     this.worker.addEventListener('error', this);
     this.port = this.worker.port;
     this.port.addEventListener('message', this);
-    this.port.start();
+    this.startPort();
     this._logMsg('message port started');
-    return this;
+  };
+
+  proto.stopPort = function() {
+    this.port.close();
+    this.stopped = true;
+  };
+
+   proto.startPort = function() {
+    this.port.start();
+    this.stopped = false;
   };
 
   proto.handleEvent = function(e) {
@@ -37,6 +50,9 @@
   };
 
   proto.postMessage = function(message) {
+    if (!this.port) {
+      return;
+    }
     this.port.postMessage(message);
   };
 

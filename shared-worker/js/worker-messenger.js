@@ -9,7 +9,7 @@
     this._logMsg('create or connect to worker');
     this.worker = new SharedWorker('worker.js', document.title);
     // listen
-    this.wokker.addEventListener('error', this);
+    this.worker.addEventListener('error', this);
     this.port = this.worker.port;
     this.port.addEventListener('message', this);
     this.port.start();
@@ -32,7 +32,7 @@
 
   proto._logMsg = function(message) {
     var div = document.createElement('div');
-    div.innerText = message;
+    div.textContent = message;
     this.messagePane.appendChild(div);
     console.log(message);
   };

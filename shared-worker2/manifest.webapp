@@ -1,0 +1,16 @@
+{
+  "name": "Workers",
+  "description": "Shared Woker",
+  "launch_path": "/index.html",
+  "developer": {
+    "name": "The Gaia Team",
+    "url": "https://github.com/mozilla-b2g/gaia"
+  },
+  "icons": {
+    "84": "/icons/costcontrol_84.png",
+    "126": "/icons/costcontrol_126.png",
+    "142": "/icons/costcontrol_142.png",
+    "189": "/icons/costcontrol_189.png",
+    "289": "/icons/costcontrol_289.png"
+  }
+}

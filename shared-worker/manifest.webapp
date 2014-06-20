@@ -7,6 +7,10 @@
     "url": "https://github.com/mozilla-b2g/gaia"
   },
   "icons": {
-    "90": "icon.png"
+    "84": "/icons/costcontrol_84.png",
+    "126": "/icons/costcontrol_126.png",
+    "142": "/icons/costcontrol_142.png",
+    "189": "/icons/costcontrol_189.png",
+    "289": "/icons/costcontrol_289.png"
   }
 }

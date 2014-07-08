@@ -5,5 +5,11 @@
     <a href="app://clock.gaiamobile.org/index.html">Normal Clock App</a>
     |
     <a href="app://clock.gaiamobile.org/index.html#digital-clock">Clock Widget</a>
+    <script>
+      window.onload = function() {
+        console.log('navigator.mozAlarms: ' + navigator.mozAlarms);
+        document.write('navigator.mozAlarms: ' + navigator.mozAlarms);
+      };
+    </script>
   </body>
 </html>

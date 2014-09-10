@@ -37,6 +37,9 @@
 </body>
 
 <script>
+  window.onresize = function() {
+    alert('window.resized');
+  };
   function toggleFullScreen(element) {
     if (!document.mozFullScreen && !document.webkitFullScreen) {
       if (element.mozRequestFullScreen) {
